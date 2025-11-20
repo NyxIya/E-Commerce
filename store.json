@@ -1,0 +1,61 @@
+{
+  "store": {
+    "info": {
+      "owner": "Katrina Bianca Llanes",
+      "shopName": "Katrina’s Online Store"
+    },
+    "categories": [
+      {
+        "name": "Smartphones",
+        "products": [
+          {
+            "title": "iPhone 15 Pro",
+            "image": "images/iphone15pro.jpg",
+            "tagPrice": 70990,
+            "info": "Apple flagship with A17 Pro chip, 6.1-inch Super Retina XDR display, and titanium frame."
+          },
+          {
+            "title": "Samsung Galaxy S23",
+            "image": "images/galaxys23.jpg",
+            "tagPrice": 58990,
+            "info": "Samsung’s premium smartphone with Snapdragon 8 Gen 2, 6.1-inch AMOLED display, and 50MP triple camera."
+          }
+        ]
+      },
+      {
+        "name": "Laptops",
+        "products": [
+          {
+            "title": "MacBook Air M2",
+            "image": "images/macbookair.jpg",
+            "tagPrice": 74990,
+            "info": "Ultra-light Apple laptop powered by the M2 chip, 13.6-inch Liquid Retina display, and 18-hour battery life."
+          },
+          {
+            "title": "ASUS ROG Zephyrus",
+            "image": "images/asusrog.jpg",
+            "tagPrice": 99990,
+            "info": "High-performance gaming laptop with Ryzen 9 processor, RTX 4070 GPU, and 165Hz QHD display."
+          }
+        ]
+      },
+      {
+        "name": "Accessories",
+        "products": [
+          {
+            "title": "Apple AirPods Pro",
+            "image": "images/airpodspro.jpg",
+            "tagPrice": 14990,
+            "info": "Wireless earbuds with Active Noise Cancellation, Adaptive Transparency, and up to 6 hours of listening time."
+          },
+          {
+            "title": "Samsung Galaxy Watch 6",
+            "image": "images/galaxywatch6.jpg",
+            "tagPrice": 18990,
+            "info": "Smartwatch with fitness tracking, heart rate monitoring, AMOLED display, and Wear OS integration."
+          }
+        ]
+      }
+    ]
+  }
+}

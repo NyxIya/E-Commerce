@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE store [
+  <!ELEMENT store (info, categories)>
+  <!ELEMENT info (owner, shopName)>
+  <!ELEMENT owner (#PCDATA)>
+  <!ELEMENT shopName (#PCDATA)>
+  <!ELEMENT categories (category+)>
+  <!ELEMENT category (name, product+)>
+  <!ELEMENT name (#PCDATA)>
+  <!ELEMENT product (title, image, tagPrice, details)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT image (#PCDATA)>
+  <!ELEMENT tagPrice (#PCDATA)>
+  <!ELEMENT details (#PCDATA)>
+]>
+<store>
+  <info>
+    <owner>Katrina Bianca Llanes</owner>
+    <shopName>Katrina’s Online Shop</shopName>
+  </info>
+
+  <categories>
+    <category>
+      <name>Smartphones</name>
+      <product>
+        <title>iPhone 15 Pro</title>
+        <image>images/iphone15pro.jpg</image>
+        <tagPrice>70990</tagPrice>
+        <details>Apple flagship with A17 Pro chip, titanium body, and ProMotion display.</details>
+      </product>
+      <product>
+        <title>Samsung Galaxy S23</title>
+        <image>images/galaxys23.jpg</image>
+        <tagPrice>58990</tagPrice>
+        <details>Premium Samsung smartphone with Snapdragon 8 Gen 2 and 50MP triple camera system.</details>
+      </product>
+    </category>
+
+    <category>
+      <name>Laptops</name>
+      <product>
+        <title>MacBook Air M2</title>
+        <image>images/macbookair.jpg</image>
+        <tagPrice>74990</tagPrice>
+        <details>Lightweight Apple laptop with M2 chip and 18-hour battery life.</details>
+      </product>
+      <product>
+        <title>ASUS ROG Zephyrus</title>
+        <image>images/asusrog.jpg</image>
+        <tagPrice>99990</tagPrice>
+        <details>Gaming laptop with Ryzen 9, RTX 4070 GPU, and 165Hz QHD screen.</details>
+      </product>
+    </category>
+
+    <category>
+      <name>Accessories</name>
+      <product>
+        <title>Apple AirPods Pro</title>
+        <image>images/airpodspro.jpg</image>
+        <tagPrice>14990</tagPrice>
+        <details>Wireless earbuds with ANC and Adaptive Transparency.</details>
+      </product>
+      <product>
+        <title>Samsung Galaxy Watch 6</title>
+        <image>images/galaxywatch6.jpg</image>
+        <tagPrice>18990</tagPrice>
+        <details>Smartwatch with fitness tracking and Wear OS integration.</details>
+      </product>
+    </category>
+  </categories>
+</store>

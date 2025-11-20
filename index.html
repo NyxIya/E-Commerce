@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Katrina’s Online Store</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #f3e8ff, #d0b3ff); /* LIGHT VIOLET */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* HEADER (GRAY) */
+    header {
+      background: #4f4f4f;  /* medium gray */
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      text-align: center;
+      color: #5a3c8f;
+      margin: 25px 0;
+      font-size: 2.4em;
+      letter-spacing: 1px;
+    }
+
+    /* Category Section */
+    .category {
+      margin-bottom: 50px;
+    }
+    .category h2 {
+      text-align: center;
+      color: #5a3c8f;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    /* Products Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Product Card */
+    .product {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .product:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+    .product img {
+      max-width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+    .product h3 {
+      font-size: 1.2em;
+      color: #444;
+      margin: 10px 0;
+    }
+    .price {
+      font-weight: bold;
+      color: #8a4efb;
+      font-size: 1.3em;
+      margin-top: 8px;
+    }
+
+    /* Buy Button */
+    .buy-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #9e66ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .buy-btn:hover {
+      background: #7f41e4;
+    }
+
+    /* Product Info */
+    .product-info {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #555;
+      line-height: 1.4;
+      background: #f1e6ff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #4f4f4f; /* medium gray */
+      color: #fff;
+      text-align: center; /* Center everything */
+      padding: 30px 20px;
+      margin-top: auto;
+      box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center content vertically */
+    }
+
+    footer h4 {
+      margin: 0 0 10px 0;
+      font-size: 1.4em;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    footer p {
+      margin: 5px 0;
+      font-size: 1em;
+      color: #e5e5e5;
+    }
+
+    .footer-links {
+      margin: 10px 0;
+    }
+
+    .footer-links a {
+      color: #f5f5f5;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    footer > * {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    🌸 Katrina’s Online Store 🌸
+  </header>
+
+  <h1>✨ Shop Our Products ✨</h1>
+
+  <div id="store"></div>
+
+  <!-- Footer with Contact Us Centered -->
+  <footer>
+    <h4>Contact Us</h4>
+    <p>Email: support@katrinashop.com | Phone: 09397482685</p>
+    <div class="footer-links">
+      <a href="#">About Us</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Terms & Conditions</a>
+    </div>
+    <p>&copy; 2025 Katrina Bianca Llanes</p>
+  </footer>
+
+  <script>
+    async function loadStore() {
+      const response = await fetch('store.json');
+      const data = await response.json();
+      const storeDiv = document.getElementById('store');
+
+      data.store.categories.forEach(cat => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'category';
+        categoryDiv.innerHTML = `<h2>${cat.name}</h2>`;
+
+        const productsDiv = document.createElement('div');
+        productsDiv.className = 'products';
+
+        cat.products.forEach(prod => {
+          const productDiv = document.createElement('div');
+          productDiv.className = 'product';
+          productDiv.innerHTML = `
+            <img src="${prod.image}" alt="${prod.title}" class="product-img">
+            <h3>${prod.title}</h3>
+            <div class="price">₱${prod.tagPrice.toLocaleString()}</div>
+            <button class="buy-btn">Buy Now</button>
+            <p class="product-info">${prod.info}</p>
+          `;
+
+          // Toggle info
+          const img = productDiv.querySelector('.product-img');
+          const info = productDiv.querySelector('.product-info');
+          img.addEventListener('click', () => {
+            info.style.display = info.style.display === 'none' ? 'block' : 'none';
+          });
+
+          // Buy Now Button
+          const buyBtn = productDiv.querySelector('.buy-btn');
+          buyBtn.addEventListener('click', () => {
+            alert(`You selected: ${prod.title}\nPrice: ₱${prod.tagPrice.toLocaleString()}`);
+          });
+
+          productsDiv.appendChild(productDiv);
+        });
+
+        categoryDiv.appendChild(productsDiv);
+        storeDiv.appendChild(categoryDiv);
+      });
+    }
+
+    loadStore();
+  </script>
+
+</body>
+</html>
